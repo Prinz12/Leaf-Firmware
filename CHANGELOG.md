@@ -1,5 +1,11 @@
 # Änderungen
 
+## 0.7.1 Beta — 2026-09-12
+
+- Testversion für den Firmware-Updateweg in Leaf Local: Versionskennung von 0.7.0 Beta auf 0.7.1 Beta erhöht.
+- Funktionen und Verhalten entsprechen 0.7.0 Beta. Bestehende Einstellungen und Speicherformat bleiben unverändert.
+- Hardware-Firmware für ESP8266 ESP-12F mit 4 MiB Flash und ATtiny85-Motorsteuerung.
+
 ## 0.7.0 Beta — 2026-09-11
 
 - Verbesserte WLAN-Einrichtung mit Leaf Local ab Version 0.31.0: Das Gerät wird nach der WLAN-Übernahme gezielt wiedergefunden und die gespeicherte Raumzuordnung bestätigt.

@@ -1,5 +1,12 @@
 # Änderungen
 
+## 0.7.2 Beta — 2026-09-12
+
+- Verbesserte OTA-Vorbereitung: nicht mehr benötigte Arbeitspuffer werden vor dem Update freigegeben.
+- Bei knappem Speicher wartet die Firmware kurz auf ausstehende Netzwerkfreigaben und prüft den Speicher erneut.
+- Speichergrenzen, Motorschutz und gespeicherte Einstellungen bleiben erhalten.
+- Die Verbesserung wirkt bei nachfolgenden Updates, sobald 0.7.2 auf dem Gerät installiert ist. Leaf Local ab 0.32.3 kann einen ausdrücklich gemeldeten Speicher-Neustart abfangen und die Vorbereitung einmal erneut versuchen.
+
 ## 0.7.1 Beta — 2026-09-12
 
 - Testversion für den Firmware-Updateweg in Leaf Local: Versionskennung von 0.7.0 Beta auf 0.7.1 Beta erhöht.

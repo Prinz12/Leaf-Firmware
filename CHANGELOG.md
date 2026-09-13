@@ -1,5 +1,16 @@
 # Änderungen
 
+## 0.7.5 Beta — 2026-09-13
+
+- Mehr Arbeitsspeicher für den laufenden Betrieb: 174 serielle Diagnoseausgaben speichern ihre festen Texte jetzt im Flash.
+- Die statische RAM-Belegung der Hardware-Firmware sinkt von 60.792 auf 51.484 Byte (74,2 % auf 62,8 %). Dadurch stehen zusätzlich 9.308 Byte, rund 9,1 KiB, als Reserve zur Verfügung.
+- Diagnoseinhalte, Steuerungslogik, Netzwerkprotokolle, gespeicherte Einstellungen und bestehende Speicher-Schutzgrenzen bleiben unverändert. Der Serientest bleibt vollständig erhalten.
+- Die Firmwaredatei benötigt dafür nur 224 Byte mehr Flash-Speicher und ist insgesamt 606.080 Byte groß.
+- Geprüft: 171 Hosttests, 16 native Testprogramme und erfolgreiche Builds beider Firmwareprofile.
+- Die Speicherersparnis ist durch den Build belegt. Diese Version wurde noch nicht auf einem Hardwaregerät installiert; der freie Laufzeit-Heap und die Fragmentierung sind damit noch nicht gemessen.
+
+Hardware-Firmware für ESP8266 ESP-12F mit 4 MiB Flash und ATtiny85-Motorsteuerung. Beta-Version.
+
 ## 0.7.4 Beta — 2026-09-13
 
 - Stabilere erneute WLAN-Einrichtung: unbenutzte Arbeitspuffer werden freigegeben und der verfügbare Speicher vor dem Schlüsselaustausch geprüft.

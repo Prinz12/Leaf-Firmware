@@ -1,5 +1,13 @@
 # Änderungen
 
+## 0.7.4 Beta — 2026-09-13
+
+- Stabilere erneute WLAN-Einrichtung: unbenutzte Arbeitspuffer werden freigegeben und der verfügbare Speicher vor dem Schlüsselaustausch geprüft.
+- Öffentliche Schlüsselantworten verwenden einen festen Puffer und werden kurz wiederholt, um einzelne verlorene UDP-Antworten abzufangen.
+- Leaf Local ab 0.33.1 zeigt ausdrücklich gemeldeten Speichermangel verständlich an.
+- Auf einem Hardwaregerät geprüft: Firmwareupdate, erneute WLAN-Einrichtung und bestätigte Raumzuordnung erfolgreich; Einstellungen und Hausplan erhalten.
+- Beta-Firmware; der erfolgreiche Gerätetest ist keine Langzeitgarantie für jede Funkumgebung.
+
 ## 0.7.2 Beta — 2026-09-12
 
 - Verbesserte OTA-Vorbereitung: nicht mehr benötigte Arbeitspuffer werden vor dem Update freigegeben.

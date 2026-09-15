@@ -1,5 +1,12 @@
 # Änderungen
 
+## 0.7.6 Beta — 2026-09-15
+
+- Versionskennung gegenüber 0.7.5 Beta erhöht und neu gebaut, damit die App ein neues Firmwareupdate zum Download anbietet.
+- Funktionen, Protokolle, Speicherformate und Geräteeinstellungen unverändert.
+- Hardwareprofil für ESP8266 ESP-12F mit 4 MiB Flash und ATtiny85-Motorsteuerung. Beta-Kanal wie bisher.
+- Kein Gerät geflasht; diese Ausgabe dient dem erneuten Download-/Update-Test.
+
 ## 0.7.5 Beta — 2026-09-13
 
 - Mehr Arbeitsspeicher für den laufenden Betrieb: 174 serielle Diagnoseausgaben speichern ihre festen Texte jetzt im Flash.

@@ -1,5 +1,17 @@
 # Änderungen
 
+## 0.9.0 Beta — 2026-09-19
+
+- Feste Repeater erholen sich jetzt auch nach dem Ausfall einer zuvor funktionierenden Gateway-Verbindung: regelmäßige Ende-zu-Ende-Bestätigungen, nach 90–120 Sekunden ohne neue Bestätigung kontrollierter Neustart in Automatik. Die Wartezeit ist geräteabhängig verteilt; ein vorher wieder erreichbares Gateway verhindert den Neustart. Ein Ersatzgateway setzt passende WLAN-Erreichbarkeit voraus.
+- Erfolgreich verbundene Repeater beenden das schnelle Verbindungsblinken der LED. Filter-, Bedien- und Servicehinweise behalten ihre Priorität.
+- WLAN-Empfang mit dBm, Farbe und Textbewertung; OTA-Upload mit Prozentbalken sowie getrennten Meldungen für Firmwareprüfung und Neustart.
+- Raumauswahl aus vorhandenen Gruppen oder neuen Räumen. Statusabfragen überschreiben keine laufenden Eingaben. Partnerdiagnose zeigt die Herkunft fehlender/ungültiger Sensorwerte.
+- Webantworten berücksichtigen langsame VPN-Verbindungen und übertragen große Seiten in kleinen, kooperativen Schritten.
+- Konfiguration und Hausplan bleiben erhalten. Bestehende Speicherprüfungen für OTA werden nicht umgangen. Die Versionsnummer bleibt auf ausdrücklichen Wunsch 0.9.0 Beta; bereits zuvor manuell installierte 0.9.0-Builds benötigen diese neue BIN für die Ergänzungen.
+- Geprüft: Hardware-/Safe-Builds, 178 Hosttests, 19 native Testprogramme und simulierte Desktop-/Mobil-Browserabläufe. Gateway-Ausfall und OTA wurden mit dieser Ausgabe noch nicht physisch am Gerät getestet. Kein Gerät durch die Veröffentlichung geflasht.
+
+Öffentliches Hardwareprofil für ESP8266 ESP-12F mit 4 MiB Flash und ATtiny85. Kein Safe-/Recovery-Abbild. Beta-Kanal.
+
 ## 0.7.6 Beta — 2026-09-15
 
 - Versionskennung gegenüber 0.7.5 Beta erhöht und neu gebaut, damit die App ein neues Firmwareupdate zum Download anbietet.

@@ -1,5 +1,17 @@
 # Änderungen
 
+## 1.0.0 Beta – 2026-09-20
+
+- OTA akzeptiert ab dieser Version ausschließlich signierte Leaf-Firmware. Vollständige Prüfungen von Imageaufbau, Länge, Integrität, Ziel und Profil erfolgen vor Freigabe des Updates.
+- Zurückgelesene Flashdaten werden einschließlich Lese- und Schreibfehlern geprüft. Zusätzliche Dateien, unvollständige Uploads und Abbrüche werden abgewiesen.
+- Der erste Wechsel von älterer Firmware auf 1.0.0 erfolgt noch über deren bisherigen Updater. Die neuen Prüfungen greifen nach dem Start von 1.0.0.
+- Alte unsignierte Dateien werden danach auch für ein Downgrade abgewiesen. Ausschließlich die signierte firmware.bin aus dem offiziellen OTA-Kanal verwenden.
+- Ein Hardware-/Safe-Profilwechsel verlangt eine ausdrückliche Serviceauswahl in der Weboberfläche. Der öffentliche OTA-Kanal enthält weiterhin ausschließlich das Hardwareprofil.
+- Bestehende Einstellungen und Hausplan behalten ihr Speicherformat. Der Bootloader bleibt unverändert; A/B-Rückfall und Stromausfallschutz beim Kopieren sind noch nicht enthalten.
+- Geprüft: 184 Hosttests, 23 native Testprogramme, Browserregression sowie Hardware- und Safe-Build. Der physische OTA-/RAM-Test steht aus; Beta-Version ohne Stable-Freigabe. Durch diese Veröffentlichung wird kein Gerät automatisch geflasht.
+
+Hardware-Firmware für ESP8266 ESP-12F mit 4 MiB Flash und ATtiny85. Das separate Safe-Bridge-Paket akzeptiert diese Datei nicht.
+
 ## 0.9.2 Beta – 2026-09-20
 
 - OTA wartet nach erfolgreicher Firmwareprüfung bis zu fünf Sekunden auf die TCP-Bestätigung der Abschlussantwort. Anschließend folgt ein kontrollierter Neustart mit 1,5 Sekunden Nachlauf.

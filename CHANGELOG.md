@@ -1,5 +1,13 @@
 # Änderungen
 
+## 0.9.2 Beta – 2026-09-20
+
+- OTA wartet nach erfolgreicher Firmwareprüfung bis zu fünf Sekunden auf die TCP-Bestätigung der Abschlussantwort. Anschließend folgt ein kontrollierter Neustart mit 1,5 Sekunden Nachlauf.
+- Verzögerte Verbindungen, etwa über VPN, erhalten damit mehr Zeit für die Abschlussbestätigung. Ein nicht mehr erreichbarer Client verhindert den Neustart nicht.
+- Der erste Wechsel von einer älteren Firmware auf 0.9.2 wird noch von deren bisherigem OTA-Code abgewickelt. Die Verbesserung greift bei nachfolgenden Updates.
+- 178 Hosttests, 20 native Regressionen sowie Hardware- und Safe-Build erfolgreich. Keine physische VPN-/OTA-Prüfung; kein Gerät automatisch geflasht.
+- Dieses öffentliche Firmwarepaket enthält ausschließlich die Hardware-Version für ESP8266 ESP-12F mit 4 MiB Flash.
+
 ## 0.9.1 Beta — 2026-09-20
 
 - „Öffnen“ in der gemeinsamen Geräteübersicht öffnet bei Gateways die vollständige Webseite über ihre eigene IP-Adresse.

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "version": "0.9.1-beta",
-  "display_version": "0.9.1 Beta",
+  "version": "0.9.2-beta",
+  "display_version": "0.9.2 Beta",
   "release_date": "2026-09-20",
   "channel": "beta",
   "target": "esp8266-esp12f-4mb",
@@ -9,8 +9,8 @@
   "firmware": {
     "file": "firmware.bin",
     "size": 621456,
-    "sha256": "aeba2d35003706d47226f61f0dfec4388a1148c4dd05f049510c90fcac63947b",
-    "url": "https://github.com/Prinz12/Leaf-Firmware/releases/download/v0.9.1-beta/firmware.bin"
+    "sha256": "3b07348ee16d4ef1f3258cb7a5e0e08d49ec1542698f6c25d53eec6f92ae80d1",
+    "url": "https://github.com/Prinz12/Leaf-Firmware/releases/download/v0.9.2-beta/firmware.bin"
   },
-  "changelog": "https://github.com/Prinz12/Leaf-Firmware/releases/tag/v0.9.1-beta"
+  "changelog": "https://github.com/Prinz12/Leaf-Firmware/releases/tag/v0.9.2-beta"
 }

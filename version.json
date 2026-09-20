@@ -1,16 +1,49 @@
 {
-  "schema_version": 1,
-  "version": "1.0.0-beta",
-  "display_version": "1.0.0 Beta",
-  "release_date": "2026-09-20",
-  "channel": "beta",
+  "schema_version": 2,
+  "version": "2.0.0-beta",
+  "display_version": "2.0.0 Beta Safe",
+  "release_date": "2026-09-21",
+  "channel": "beta-ab-safe",
   "target": "esp8266-esp12f-4mb",
-  "profile": "hardware",
+  "profile": "safe",
+  "device_profile": "dummy-safe",
+  "layout": 2,
+  "requires_boot_layout": 2,
+  "hardware_outputs": false,
   "firmware": {
-    "file": "firmware.bin",
-    "size": 655012,
-    "sha256": "e8b12c8af152c8a8370787c43b9c9433d80f5a99a1e3afad9ec5b7b46827553a",
-    "url": "https://github.com/Prinz12/Leaf-Firmware/releases/download/v1.0.0-beta/firmware.bin"
+    "file": "firmware-safe.bin",
+    "size": 651604,
+    "sha256": "0c3b8b81ee78d44229a32455d9b9b995843161bd99c6a5cdf6a10682d1af79e5",
+    "url": "https://github.com/Prinz12/Leaf-Firmware/releases/download/ab-safe-v2.0.0-beta/firmware-safe.bin"
   },
-  "changelog": "https://github.com/Prinz12/Leaf-Firmware/releases/tag/v1.0.0-beta"
+  "image_sha256": "202d4c58c6637ee9705b886ea0042262ed450dded6271955fc282afd743b2af1",
+  "changelog": "https://github.com/Prinz12/Leaf-Firmware/releases/tag/ab-safe-v2.0.0-beta",
+  "migration": {
+    "version": "0.2.0-beta",
+    "from_version": "1.0.0-beta",
+    "from_layout": 1,
+    "to_layout": 2,
+    "scope": "internal-service",
+    "bootloader_power_loss_risk": true,
+    "automatic_app_migration": false,
+    "firmware": {
+      "file": "migration-safe-from-1.0.0.bin",
+      "size": 633044,
+      "sha256": "ff479ecea8a26e05f5a8cf08b3127cb773894c8dcd930489e89ab64959fe3d53",
+      "url": "https://github.com/Prinz12/Leaf-Firmware/releases/download/ab-safe-v2.0.0-beta/migration-safe-from-1.0.0.bin"
+    },
+    "upload_order": [
+      "migration-safe-from-1.0.0.bin",
+      "firmware-safe.bin",
+      "firmware-safe.bin"
+    ]
+  },
+  "validation": {
+    "host_tests": 198,
+    "native_programs": 29,
+    "ota_migration_safe_tested": true,
+    "safe_outputs_remained_disabled": true,
+    "serial_flash_checksum_verified": true,
+    "precision_flash_pulse_power_cut_test": "deferred-by-owner"
+  }
 }

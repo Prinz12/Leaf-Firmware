@@ -1,5 +1,15 @@
 # Änderungen
 
+## 0.9.1 Beta — 2026-09-20
+
+- „Öffnen“ in der gemeinsamen Geräteübersicht öffnet bei Gateways die vollständige Webseite über ihre eigene IP-Adresse.
+- Nur Repeater öffnen die kompakte Geräteansicht über ihr zuständiges Gateway. Das Hardware-/Safe-Profil beeinflusst die Auswahl nicht. Rollenwechsel werden bei der nächsten Statusabfrage berücksichtigt.
+- Fehlende/ungültige Gateway-Adressen erzeugen keinen falschen Link; das lokale Gerät bleibt lokal.
+- Gateway-Wiederherstellung, LED-Korrektur, WLAN-Bewertung und OTA-Fortschritt aus 0.9.0 bleiben enthalten. Motorsteuerung und Speicherformate unverändert.
+- Geprüft: Hardware-/Safe-Builds, 178 Hosttests und simulierte Desktop-/Mobil-Browserabläufe einschließlich Linkzielen und Rollenwechsel. Kein Gerät geflasht; keine reale Gerätenavigation mit dieser Ausgabe getestet.
+
+Hardware-Firmware für ESP8266 ESP-12F mit 4 MiB Flash und ATtiny85. Beta-Kanal. Die Veröffentlichung enthält kein Safe-/Recovery-Abbild.
+
 ## 0.9.0 Beta — 2026-09-19
 
 - Feste Repeater erholen sich jetzt auch nach dem Ausfall einer zuvor funktionierenden Gateway-Verbindung: regelmäßige Ende-zu-Ende-Bestätigungen, nach 90–120 Sekunden ohne neue Bestätigung kontrollierter Neustart in Automatik. Die Wartezeit ist geräteabhängig verteilt; ein vorher wieder erreichbares Gateway verhindert den Neustart. Ein Ersatzgateway setzt passende WLAN-Erreichbarkeit voraus.

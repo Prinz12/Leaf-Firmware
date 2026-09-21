@@ -1,21 +1,21 @@
 {
   "schema_version": 2,
-  "version": "2.0.1-beta",
-  "display_version": "2.0.1 Beta Safe",
+  "version": "2.0.2-beta",
+  "display_version": "2.0.2 Beta Safe",
   "release_date": "2026-09-21",
   "channel": "beta-ab-safe",
   "target": "esp8266-esp12f-4mb",
   "profile": "safe",
-  "device_profile": "dummy-safe",
-  "hardware_outputs": false,
   "layout": 2,
   "requires_boot_layout": 2,
-  "image_sha256": "051fc0d13b656c3e4489b3fee9b58347f8de0336c4023294167c38e12dc33158",
+  "image_sha256": "42bfe10a88975de23fa9f2dde14d49d1c43abb5df1fe70eda8fe75532b039b26",
   "firmware": {
     "file": "firmware-safe.bin",
     "size": 651636,
-    "sha256": "28b4eb4fb3a6ca717a7e4c890f1809e7a897c9a0a75166361a8f9ae8cf3efc25",
-    "url": "https://github.com/Prinz12/Leaf-Firmware/releases/download/ab-safe-v2.0.1-beta/firmware-safe.bin"
+    "sha256": "ceed6bd17edd54d8b407285f55f5c917270882bffedbefba0a6627731abf0818",
+    "url": "https://github.com/Prinz12/Leaf-Firmware/releases/download/ab-safe-v2.0.2-beta/firmware-safe.bin"
   },
-  "changelog": "https://github.com/Prinz12/Leaf-Firmware/releases/tag/ab-safe-v2.0.1-beta"
+  "changelog": "https://github.com/Prinz12/Leaf-Firmware/releases/tag/ab-safe-v2.0.2-beta",
+  "device_profile": "dummy-safe",
+  "hardware_outputs": false
 }

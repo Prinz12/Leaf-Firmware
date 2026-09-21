@@ -22,6 +22,18 @@ WLAN, Einstellungen und Hausplan bleiben erhalten. Das interne Servicewerkzeug v
 
 Bereits vollständig umgestellte Safe-A/B-Geräte verwenden für künftige Updates nur die passende **firmware-safe.bin**. Die Zwischenfirmware wird dort nicht mehr benötigt. Eine direkte Rückkehr zu 1.0.0 per normalem A/B-OTA ist nicht vorgesehen.
 
+## Umstellung mit Leaf Local ab 0.37.0
+
+Zuerst unter **Einstellungen → App-Update** die App auf [0.37.0 oder neuer](https://github.com/Prinz12/Leaf-Firmware/releases/tag/app-v0.37.0) aktualisieren. Danach **Firmware-Updates** öffnen, **Beta-Versionen anzeigen** aktivieren, **VERSION PRÜFEN**, **FIRMWARE HERUNTERLADEN** und **GERÄTE PRÜFEN** ausführen. Die gewünschten Geräte auswählen und **AUSWAHL AKTUALISIEREN** bestätigen.
+
+Die App wählt das passende Profil selbst und führt die drei OTA-Schritte nacheinander aus. Vor einer Bootloaderänderung verlangt ein zusätzliches Warnfenster ausdrücklich **VERSTANDEN – UPDATE STARTEN**:
+
+> Während der gesamten Umstellung auf keinen Fall die Spannungsversorgung unterbrechen!
+
+Abbrechen startet keinen Upload. Die App prüft Signatur, Gerätekennung, Profil, Imagehash, bestätigten Start, Einstellungen und Hausplan. Safe bleibt Safe. Ein Fehler stoppt die Updatefolge; ein angeforderter Stopp beendet zuerst den vollständigen Vorgang am aktuellen Gerät. Nach einem App-Abbruch muss der Nutzer erneut prüfen und bestätigen; unklare Uploads werden nicht automatisch wiederholt.
+
+Die Beschränkung auf eigene Testgeräte mit serieller Reparaturmöglichkeit bleibt bestehen. Normale spätere A/B-Updates ändern den Bootloader nicht.
+
 ## Prüfstand und Grenzen
 
 198 Hosttests, 29 native Testprogramme und die Web-Rückkehrprüfung bestanden. Legacy-Hardware, Legacy-Safe und beide Migrationsprofile erfolgreich gebaut. Die vollständige Safe-OTA-Kette von 1.0.0 über Migration 0.2.0 bis zu beiden Safe-A/B-Slots wurde auf der freigegebenen Testplatine ausgeführt. Hardwarepakete und eine manipulierte Safe-Datei wurden abgewiesen; die Ausgänge blieben deaktiviert. Einstellungen und Hausplan blieben erhalten.
@@ -32,6 +44,6 @@ Der zusätzliche präzise Stromausfalltest innerhalb einzelner Flash-Lösch-/Sch
 
 ## Updatekanal
 
-Separater Safe-A/B-Tag **ab-safe-v2.0.0-beta**, Artefaktzweig **ab-safe-beta**, Layout2-Manifest mit Schema 2. Der Hardware-A/B-Kanal `ab-v2.0.0-beta` und der bisherige `main`-/`v1.0.0-beta`-Kanal bleiben bestehen. Vorhandene Leaf-Local-Apps wählen dieses A/B-Release nicht automatisch aus; für die Umstellung das Servicewerkzeug oder die Gerätewebseite verwenden. Durch diese Veröffentlichung wird kein weiteres Gerät aktualisiert.
+Separater Safe-A/B-Tag **ab-safe-v2.0.0-beta**, Artefaktzweig **ab-safe-beta**, Layout2-Manifest mit Schema 2. Der Hardware-A/B-Kanal `ab-v2.0.0-beta` und der bisherige `main`-/`v1.0.0-beta`-Kanal bleiben bestehen. Leaf Local ab 0.37.0 unterstützt diesen Kanal nach Aktivierung von **Beta-Versionen anzeigen** und ausdrücklichem Start durch den Nutzer. Ältere Apps benötigen zuerst das App-Update. Es erfolgt keine selbstständige Migration im Hintergrund. Durch diese Veröffentlichung wird kein weiteres Gerät aktualisiert.
 
 Das Paket enthält nur die signierte Safe-Firmware, die signierte Safe-Zwischenfirmware, Versionsinformationen und diese Anleitung. Keine Testimages, Firmwarequellen oder Gerätedaten.

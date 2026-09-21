@@ -1,49 +1,24 @@
-# Leaf Basic 2.0.0 Beta Safe – A/B und OTA-Migration
+# Leaf Basic 2.0.1 Beta Safe – VPN-Upload
 
-Veröffentlicht am 21.09.2026 für ESP8266 ESP-12F mit 4 MiB Flash und Safe-Profil.
+Veröffentlicht am 21.09.2026.
 
-## Safe-Migration ergänzt
+- Firmwareuploads erlauben bis zu 15 Sekunden ohne neue empfangene Bytes und insgesamt fünf Minuten. Die Gerätewebseite wartet höchstens sechs Minuten.
+- Die längeren Empfangsgrenzen gelten erst nach Installation; der erste Upload wird noch durch die bisherige Firmware begrenzt.
+- Signatur-, Profil-, Größen- und Integritätsprüfungen bleiben erhalten. Einstellungen und Hausplan behalten ihr Speicherformat.
+- 198 Hosttests, 29 native Regressionen und alle vier Hardware-/Safe-Builds erfolgreich. Kein echter Mobilfunk-/VPN-Upload mit dieser Ausgabe nachgestellt; Beta-Freigabe.
 
-Das bisherige Migrationspaket 0.1.0 ist für das Hardwareprofil signiert. Safe-Geräte lehnen es mit „Firmwareprofil passt nicht“ ab. Für Safe 1.0.0 ist jetzt die separate, signierte Zwischenfirmware 0.2.0 verfügbar. Profilprüfung und Signaturprüfung bleiben aktiv. Das Safe-Profil und die deaktivierten Hardwareausgänge bleiben bei allen drei OTA-Schritten erhalten.
+## Update mit der App
 
-Die endgültige Safe-Firmware 2.0.0 verwendet zwei Anwendungsslots. Normale spätere A/B-Updates schreiben in den inaktiven Slot. Eine neue Anwendung muss ihren Start nach mindestens 30 Sekunden gesunder Laufzeit und lokalem Statusabruf bestätigen. Bei fehlender Bestätigung erfolgt nach spätestens 120 Sekunden ein Neustart mit Rückfall auf den zuvor bestätigten Stand.
+Zuerst Leaf Local auf **0.37.1 oder neuer** aktualisieren. Unter Firmware-Updates **Beta-Versionen anzeigen**, **VERSION PRÜFEN**, **FIRMWARE HERUNTERLADEN** und **GERÄTE PRÜFEN** ausführen. Bereits vollständig umgestellte A/B-Geräte erhalten dieses normale Update; der Bootloader wird dabei nicht geändert.
 
-## Safe 1.0.0 per OTA umstellen
+Bestehende 1.0.0-/1.0.1-Geräte müssen zuerst die vollständige Migration auf **2.0.0** abschließen. Die App verwendet dafür weiterhin das separate Paket **ab-safe-v2.0.0-beta**. Danach erneut prüfen und 2.0.1 als normales A/B-Update installieren. Die Migrationsbrücke akzeptiert ausschließlich ihre fest gebundene 2.0.0-Datei; diese 2.0.1-Datei darf dort nicht verwendet werden.
 
-Dieser Weg ist für die eigenen, noch nicht bei Kunden installierten Platinen freigegeben. Voraussetzung ist **Leaf 1.0.0 Beta im Safe-Profil** mit direkter HTTP-Erreichbarkeit.
+Vor der einmaligen Bootloaderänderung muss die Stromversorgungswarnung ausdrücklich bestätigt werden. Während der gesamten Migration darf die Spannungsversorgung auf keinen Fall unterbrochen werden. Die Migration bleibt für eigene Testgeräte mit serieller Reparaturmöglichkeit bestimmt.
 
-Stabile Stromversorgung und serielle Reparaturmöglichkeit für den Fehlerfall bereithalten. Der erste Legacy-OTA-Kopiervorgang und der einmalige Bootloaderwechsel sind nicht stromausfallfest. Ein Versorgungsausfall während des Bootloaderwechsels kann serielle Wiederherstellung erfordern.
+Bei unbestätigtem Upload erlaubt **FEHLVERSUCH PRÜFEN** eine lesende Prüfung. Erst ein nachweislich unveränderter, wiederhergestellter Ausgangszustand und eine neue ausdrückliche Bestätigung erlauben einen weiteren Versuch. Es gibt keine automatische Wiederholung.
 
-1. Unter `http://<IP>/update` **migration-safe-from-1.0.0.bin** installieren. Auf **Leaf A/B OTA Migration 0.2.0 Beta** warten.
-2. Auf derselben Update-Seite **firmware-safe.bin** installieren. Die Zwischenfirmware akzeptiert ausschließlich die hier veröffentlichte signierte Safe-2.0.0-Datei. Sie prüft diese vollständig, bereitet Slot B und beide Bootdatensätze vor und ersetzt den Bootloader zuletzt. Danach startet **2.0.0 Beta** aus B.
-3. Nach diesem Start erneut **firmware-safe.bin** installieren und die Startbestätigung abwarten. Damit ist auch Slot A mit Safe bestückt und dauerhaft bestätigt.
+## Profil und Grenzen
 
-WLAN, Einstellungen und Hausplan bleiben erhalten. Das interne Servicewerkzeug verwendet `--profile safe` und gleicht Gerätekennung, Profil, Imagehash, Einstellungen und Hausplan ab. Unklare Uploads werden nicht automatisch wiederholt. Profilwechsel sind während der Migration gesperrt.
+Safe-Profil ohne Motor-/ATtiny-Ausgabe. Ausschließlich firmware-safe.bin für bereits umgestellte Safe-Geräte verwenden.
 
-Bereits vollständig umgestellte Safe-A/B-Geräte verwenden für künftige Updates nur die passende **firmware-safe.bin**. Die Zwischenfirmware wird dort nicht mehr benötigt. Eine direkte Rückkehr zu 1.0.0 per normalem A/B-OTA ist nicht vorgesehen.
-
-## Umstellung mit Leaf Local ab 0.37.0
-
-Zuerst unter **Einstellungen → App-Update** die App auf [0.37.0 oder neuer](https://github.com/Prinz12/Leaf-Firmware/releases/tag/app-v0.37.0) aktualisieren. Danach **Firmware-Updates** öffnen, **Beta-Versionen anzeigen** aktivieren, **VERSION PRÜFEN**, **FIRMWARE HERUNTERLADEN** und **GERÄTE PRÜFEN** ausführen. Die gewünschten Geräte auswählen und **AUSWAHL AKTUALISIEREN** bestätigen.
-
-Die App wählt das passende Profil selbst und führt die drei OTA-Schritte nacheinander aus. Vor einer Bootloaderänderung verlangt ein zusätzliches Warnfenster ausdrücklich **VERSTANDEN – UPDATE STARTEN**:
-
-> Während der gesamten Umstellung auf keinen Fall die Spannungsversorgung unterbrechen!
-
-Abbrechen startet keinen Upload. Die App prüft Signatur, Gerätekennung, Profil, Imagehash, bestätigten Start, Einstellungen und Hausplan. Safe bleibt Safe. Ein Fehler stoppt die Updatefolge; ein angeforderter Stopp beendet zuerst den vollständigen Vorgang am aktuellen Gerät. Nach einem App-Abbruch muss der Nutzer erneut prüfen und bestätigen; unklare Uploads werden nicht automatisch wiederholt.
-
-Die Beschränkung auf eigene Testgeräte mit serieller Reparaturmöglichkeit bleibt bestehen. Normale spätere A/B-Updates ändern den Bootloader nicht.
-
-## Prüfstand und Grenzen
-
-198 Hosttests, 29 native Testprogramme und die Web-Rückkehrprüfung bestanden. Legacy-Hardware, Legacy-Safe und beide Migrationsprofile erfolgreich gebaut. Die vollständige Safe-OTA-Kette von 1.0.0 über Migration 0.2.0 bis zu beiden Safe-A/B-Slots wurde auf der freigegebenen Testplatine ausgeführt. Hardwarepakete und eine manipulierte Safe-Datei wurden abgewiesen; die Ausgänge blieben deaktiviert. Einstellungen und Hausplan blieben erhalten.
-
-Bootloader, beide Safe-Anwendungen, Bootdatensätze und unveränderte Benutzerdaten wurden anschließend seriell per Prüfsumme bestätigt. Ein Neustart mit gelöschten RTC-Bootinformationen bestätigte den dauerhaft gespeicherten Safe-Start.
-
-Der zusätzliche präzise Stromausfalltest innerhalb einzelner Flash-Lösch-/Schreibimpulse wurde auf Wunsch zurückgestellt und wird nicht als bestanden angegeben. Beta-Freigabe, keine vollständige elektrische Kundenabnahme. Für einen beschädigten Bootloader, zwei zerstörte Bootdatensätze oder ein nachträglich beschädigtes bestätigtes Image gibt es noch kein unabhängiges Rettungsimage.
-
-## Updatekanal
-
-Separater Safe-A/B-Tag **ab-safe-v2.0.0-beta**, Artefaktzweig **ab-safe-beta**, Layout2-Manifest mit Schema 2. Der Hardware-A/B-Kanal `ab-v2.0.0-beta` und der bisherige `main`-/`v1.0.0-beta`-Kanal bleiben bestehen. Leaf Local ab 0.37.0 unterstützt diesen Kanal nach Aktivierung von **Beta-Versionen anzeigen** und ausdrücklichem Start durch den Nutzer. Ältere Apps benötigen zuerst das App-Update. Es erfolgt keine selbstständige Migration im Hintergrund. Durch diese Veröffentlichung wird kein weiteres Gerät aktualisiert.
-
-Das Paket enthält nur die signierte Safe-Firmware, die signierte Safe-Zwischenfirmware, Versionsinformationen und diese Anleitung. Keine Testimages, Firmwarequellen oder Gerätedaten.
+Signierte Updates schreiben weiterhin nur den inaktiven Anwendungsslot. Bootdatenformat, Startbestätigung und Rückfalllogik bleiben unverändert. Dieses Release wurde automatisiert geprüft; es wurde kein Gerät damit geflasht. Der zuvor zurückgestellte präzise Stromausfalltest innerhalb eines Flash-Schreibimpulses bleibt offen.

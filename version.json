@@ -1,16 +1,18 @@
 {
   "schema_version": 1,
-  "version": "1.0.0-beta",
-  "display_version": "1.0.0 Beta",
-  "release_date": "2026-09-20",
-  "channel": "beta",
+  "version": "1.0.1-beta",
+  "display_version": "1.0.1 Beta Safe",
+  "release_date": "2026-09-21",
+  "channel": "beta-safe",
   "target": "esp8266-esp12f-4mb",
-  "profile": "hardware",
+  "profile": "safe",
+  "device_profile": "dummy-safe",
+  "hardware_outputs": false,
   "firmware": {
-    "file": "firmware.bin",
-    "size": 655012,
-    "sha256": "e8b12c8af152c8a8370787c43b9c9433d80f5a99a1e3afad9ec5b7b46827553a",
-    "url": "https://github.com/Prinz12/Leaf-Firmware/releases/download/v1.0.0-beta/firmware.bin"
+    "file": "firmware-safe.bin",
+    "size": 654500,
+    "sha256": "4d223d23bd12f8fac2516d7abc435179d349e31f80a62545a357c69f52dbcd66",
+    "url": "https://github.com/Prinz12/Leaf-Firmware/releases/download/safe-v1.0.1-beta/firmware-safe.bin"
   },
-  "changelog": "https://github.com/Prinz12/Leaf-Firmware/releases/tag/v1.0.0-beta"
+  "changelog": "https://github.com/Prinz12/Leaf-Firmware/releases/tag/safe-v1.0.1-beta"
 }

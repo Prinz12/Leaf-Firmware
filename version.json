@@ -1,19 +1,19 @@
 {
   "schema_version": 2,
-  "version": "2.0.1-beta",
-  "display_version": "2.0.1 Beta",
+  "version": "2.0.2-beta",
+  "display_version": "2.0.2 Beta",
   "release_date": "2026-09-21",
   "channel": "beta-ab",
   "target": "esp8266-esp12f-4mb",
   "profile": "hardware",
   "layout": 2,
   "requires_boot_layout": 2,
-  "image_sha256": "760646d15ee44164e2cec0056f4987d020cd8e3d65d50e5381813bfa80e3d881",
+  "image_sha256": "d31f2ec2b98dc9e9574059e5e7068d25bbc83d384ef1861651ccfc94e69c99f7",
   "firmware": {
     "file": "firmware.bin",
     "size": 653300,
-    "sha256": "af866e1f61723bee4b622726842a092f956f14f3d779a4c08e88745c096d8dce",
-    "url": "https://github.com/Prinz12/Leaf-Firmware/releases/download/ab-v2.0.1-beta/firmware.bin"
+    "sha256": "83cbe36aea2629a783b1e893ecce3de56eb8433d8d688ab07b21219704e54e6b",
+    "url": "https://github.com/Prinz12/Leaf-Firmware/releases/download/ab-v2.0.2-beta/firmware.bin"
   },
-  "changelog": "https://github.com/Prinz12/Leaf-Firmware/releases/tag/ab-v2.0.1-beta"
+  "changelog": "https://github.com/Prinz12/Leaf-Firmware/releases/tag/ab-v2.0.2-beta"
 }
